@@ -16,8 +16,8 @@ var models = [
   }
 ];
 
-var index = 0;
+var index = 2;
 
-document.querySelector('card-title').textContent = models[index];
-document.querySelector(".card-img-top").setAttribute("src", models[index].image);
-document.querySelector('card-link').setAttribute('herf',models[index].link);
+document.querySelector('.card-title').textContent = models[index].name;
+document.querySelector('.card-img-top').setAttribute("src", models[index].image);
+document.querySelector('.card-link').setAttribute('herf',models[index].link);
