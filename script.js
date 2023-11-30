@@ -20,42 +20,50 @@ var models = [
 
 var index = 2;
 var slaytCount = models.length;
+var interval;
 var settings ={
 
   duration: '1000',
   random :false
 
 };
-init(settings);
 
+init(settings);
 
 showSlide(index);
 
 document.querySelector('.fa-arrow-circle-left').addEventListener('click',function(){
 
-
   index--;
   showSlide(index);
   console.log(index);
-
 
 });
 
 document.querySelector('.fa-arrow-circle-right').addEventListener('click',function(){
 
-
   index++;
   showSlide(index);
   console.log(index);
 
-
 });
+
+document.querySelectorAll('.arrow').forEach(function(item){
+  item.addEventListener('mouseenter',function(){
+    clearInterval(interval);
+  })
+})
+
+document.querySelectorAll('.arrow').forEach(function(item){
+  item.addEventListener('mouseleave',function(){
+    init(settings);
+  })
+})
 
 function init(settings){
 
   var prev;
-
-  setInterval(function(){
+  interval = setInterval(function(){
 
     if(settings.random){
 
@@ -72,7 +80,7 @@ function init(settings){
 
       //artan index
       if(slaytCount == index+1){
-        index = 0;
+        index = -1;
       }
       console.log(index);
       index++;
